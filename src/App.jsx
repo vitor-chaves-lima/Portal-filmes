@@ -1,5 +1,16 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+
+function Link({ to, children }) {
+  return (
+    <NavLink
+      to={to}
+      className={({ isActive }) => (isActive ? "border-b-2" : "")}
+    >
+      {children}
+    </NavLink>
+  );
+}
 
 function App() {
   return (
