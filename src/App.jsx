@@ -15,10 +15,10 @@ function Link({ to, children }) {
 function App() {
   return (
     <>
-      <header className="sticky bg-purple-600 text-white p-5 flex justify-between">
-        Portal filmes
+      <header className="sticky bg-purple-800 text-white p-5 flex justify-between">
+        <h1 className="font-bold">Portal filmes</h1>
         <nav>
-          <ul className="flex gap-3">
+          <ul className="flex gap-4">
             <li>
               <Link to="/">Home</Link>
             </li>
