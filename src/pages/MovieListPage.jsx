@@ -9,15 +9,17 @@ export default function MovieListPage(){
         setSearch(e.target.value.toLowerCase());
     }
 
+    const filteredMovies = movies
+        .filter((movie) => movie["titulo"].toLowerCase().includes(search))
+        .map(movie => <MovieCard key={movie.id} {...movie} />)
+
     return(
         <>
             <h1>Veja o catálogo completo de filmes</h1>
             <input type="text" name="search" id="search" placeholder="Buscar"  className="border-black border" value={search} onChange={handleSearch}/>
 
             {
-                movies
-                    .filter((movie) => movie["titulo"].toLowerCase().includes(search))
-                    .map(movie => <MovieCard key={movie.id} {...movie} />)
+                filteredMovies.length > 0 ? filteredMovies : <p>Não existem filmes</p>
             }
         </>
     )
